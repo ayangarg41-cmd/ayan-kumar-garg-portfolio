@@ -419,3 +419,39 @@ if (researchTerminal) {
   renderTerminal();
   renderOnePagerExplorer();
 }
+
+const ipoFeature = document.querySelector('.ipo-project-feature');
+
+if (ipoFeature) {
+  const ipoTabs = [...ipoFeature.querySelectorAll('[data-ipo-tab]')];
+  const ipoPanels = [...ipoFeature.querySelectorAll('[data-ipo-panel]')];
+
+  const selectIpoView = (view) => {
+    ipoTabs.forEach((button) => {
+      const active = button.dataset.ipoTab === view;
+      button.classList.toggle('is-active', active);
+      button.setAttribute('aria-selected', String(active));
+      button.tabIndex = active ? 0 : -1;
+    });
+    ipoPanels.forEach((panel) => {
+      panel.hidden = panel.dataset.ipoPanel !== view;
+    });
+  };
+
+  ipoTabs.forEach((button, index) => {
+    button.addEventListener('click', () => selectIpoView(button.dataset.ipoTab));
+    button.addEventListener('keydown', (event) => {
+      if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+      event.preventDefault();
+      let nextIndex = index;
+      if (event.key === 'ArrowRight') nextIndex = (index + 1) % ipoTabs.length;
+      if (event.key === 'ArrowLeft') nextIndex = (index - 1 + ipoTabs.length) % ipoTabs.length;
+      if (event.key === 'Home') nextIndex = 0;
+      if (event.key === 'End') nextIndex = ipoTabs.length - 1;
+      ipoTabs[nextIndex].focus();
+      selectIpoView(ipoTabs[nextIndex].dataset.ipoTab);
+    });
+  });
+
+  selectIpoView('overview');
+}

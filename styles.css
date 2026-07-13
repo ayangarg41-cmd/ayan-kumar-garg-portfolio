@@ -1167,3 +1167,160 @@ body { background:#f1efe7; color:#11130f; font-size:17px; }
 .certification-card:nth-child(6) { background:#20261a; }
 .certification-card:nth-child(6)::before { background:#d7ff52; }
 .certification-card:nth-child(6) > span { color:#d7ff52; }
+
+/* Featured IPO analysis project */
+.ipo-project-feature { display:grid; grid-template-columns:1.08fr .92fr; margin-top:68px; border:1px solid rgba(17,19,15,.22); background:#11130f; color:#f1efe7; box-shadow:0 28px 70px rgba(17,19,15,.16); }
+.ipo-project-main { display:flex; flex-direction:column; justify-content:center; min-height:560px; padding:clamp(32px,5vw,68px); }
+.ipo-project-meta { display:flex; align-items:center; justify-content:space-between; gap:20px; padding-bottom:20px; border-bottom:1px solid rgba(255,255,255,.16); font:800 10px "DM Mono",monospace; letter-spacing:.1em; text-transform:uppercase; }
+.ipo-project-meta span { color:#d7ff52; }
+.ipo-project-meta strong { color:#aeb5aa; }
+.ipo-project-kicker { margin:42px 0 14px; color:#d7ff52; font:800 11px "DM Mono",monospace; letter-spacing:.06em; text-transform:uppercase; }
+.ipo-project-main h3 { margin:0; color:#fff; font-size:clamp(40px,5vw,70px); font-weight:800; letter-spacing:-.055em; line-height:.98; }
+.ipo-project-main h3 em { color:#d7ff52; font-family:"Playfair Display",serif; font-weight:600; }
+.ipo-project-copy { max-width:720px; margin:28px 0 0; color:#d9ded4; font-size:17px; line-height:1.72; }
+.ipo-project-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:36px; }
+.ipo-project-actions .button { min-width:190px; justify-content:space-between; }
+.ipo-report-link { border:1px solid rgba(255,255,255,.30); background:#22261f; color:#fff; }
+.ipo-report-link:hover { border-color:#d7ff52; color:#d7ff52; }
+.ipo-project-visual { position:relative; display:flex; flex-direction:column; min-height:560px; padding:clamp(28px,4vw,50px); overflow:hidden; background:linear-gradient(145deg,#f1efe7 0%,#dedbd1 100%); color:#11130f; }
+.ipo-project-visual::before { content:"IPO"; position:absolute; right:-18px; top:70px; color:rgba(17,19,15,.055); font-size:clamp(150px,18vw,260px); font-weight:800; letter-spacing:-.09em; line-height:.8; }
+.ipo-visual-head { position:relative; z-index:1; display:flex; justify-content:space-between; align-items:center; padding-bottom:18px; border-bottom:2px solid #11130f; font:800 12px "DM Mono",monospace; }
+.ipo-visual-head span { padding:8px 10px; background:#11130f; color:#d7ff52; }
+.ipo-visual-head small { font-weight:800; }
+.ipo-metric-grid { position:relative; z-index:1; display:grid; grid-template-columns:1fr 1fr; gap:1px; margin-top:34px; background:rgba(17,19,15,.20); border:1px solid rgba(17,19,15,.20); }
+.ipo-metric-grid p { min-height:132px; margin:0; padding:24px; background:#f6f3e9; }
+.ipo-metric-grid small { display:block; color:#64695f; font:800 9px "DM Mono",monospace; letter-spacing:.06em; text-transform:uppercase; }
+.ipo-metric-grid strong { display:block; margin-top:18px; color:#11130f; font-size:clamp(31px,3.5vw,48px); font-weight:800; line-height:1; }
+.ipo-metric-grid p:last-child { background:#d7ff52; }
+.ipo-scenario-line { position:relative; z-index:1; margin-top:28px; padding:22px; background:#11130f; color:#fff; }
+.ipo-scenario-line > span { color:#d7ff52; font:800 10px "DM Mono",monospace; text-transform:uppercase; }
+.ipo-scenario-line > div { display:flex; align-items:flex-end; gap:8px; height:64px; margin:17px 0 13px; border-bottom:1px solid rgba(255,255,255,.22); }
+.ipo-scenario-line i { flex:1; height:34%; background:#d7ff52; }
+.ipo-scenario-line i:nth-child(2) { height:42%; }.ipo-scenario-line i:nth-child(3) { height:51%; }.ipo-scenario-line i:nth-child(4) { height:64%; }.ipo-scenario-line i:nth-child(5) { height:78%; }.ipo-scenario-line i:nth-child(6) { height:94%; background:#ff6846; }
+.ipo-scenario-line small { color:#c8cdc3; font-size:11px; }
+.ipo-project-note { position:relative; z-index:1; margin:auto 0 0; padding-top:24px; color:#5f645b; font-size:10px; line-height:1.55; }
+
+@media (max-width:900px) {
+  .ipo-project-feature { grid-template-columns:1fr; }
+  .ipo-project-main,.ipo-project-visual { min-height:0; }
+}
+@media (max-width:620px) {
+  .ipo-project-feature { margin-top:45px; }
+  .ipo-project-main,.ipo-project-visual { padding:26px 20px; }
+  .ipo-project-meta { align-items:flex-start; flex-direction:column; gap:8px; }
+  .ipo-project-main h3 { font-size:40px; }
+  .ipo-project-copy { font-size:16px; }
+  .ipo-project-actions { flex-direction:column; }
+  .ipo-project-actions .button { width:100%; }
+  .ipo-metric-grid { grid-template-columns:1fr 1fr; }
+  .ipo-metric-grid p { min-height:112px; padding:18px 14px; }
+  .ipo-metric-grid strong { font-size:29px; }
+}
+
+/* Expanded on-page IPO research dashboard */
+.projects-section > .ipo-project-feature { order:5; }
+.ipo-project-feature { display:block; margin-top:74px; overflow:hidden; border:1px solid rgba(255,255,255,.18); background:#11130f; color:#f1efe7; box-shadow:0 28px 70px rgba(17,19,15,.18); }
+.ipo-project-header { padding:clamp(30px,5vw,66px); background:radial-gradient(circle at 88% 16%,rgba(215,255,82,.10),transparent 28%),#11130f; }
+.ipo-project-heading { display:flex; align-items:flex-end; justify-content:space-between; gap:40px; }
+.ipo-project-heading > div:first-child { flex:1; }
+.ipo-project-header .premium-kicker { margin-bottom:14px; color:#d7ff52; font-size:11px; }
+.ipo-title-lockup { display:flex; align-items:center; gap:clamp(20px,3vw,34px); }
+.ipo-company-logo { display:grid; place-items:center; flex:0 0 clamp(160px,18vw,220px); min-height:84px; padding:20px 22px; border-left:5px solid #008ac4; background:#f7f8f4; box-shadow:0 16px 36px rgba(0,0,0,.24); }
+.ipo-company-logo img { display:block; width:100%; height:auto; }
+.ipo-project-header h3 { margin:0; color:#fff; font-size:clamp(35px,4.6vw,60px); font-weight:800; letter-spacing:-.055em; line-height:.98; }
+.ipo-project-header h3 span { color:#d7ff52; }
+.ipo-project-header .ipo-project-copy { max-width:780px; margin:18px 0 0; color:#d1d5cb; font-size:16px; line-height:1.7; }
+.ipo-view-tabs { display:grid; grid-template-columns:repeat(5,1fr); gap:1px; padding:0 clamp(30px,5vw,66px); background:#11130f; border-top:1px solid rgba(255,255,255,.16); border-bottom:1px solid rgba(255,255,255,.16); }
+.ipo-view-tabs button { min-height:66px; padding:16px 14px; border:0; border-bottom:3px solid transparent; background:#1b1f19; color:#cbd1c6; font:800 13px "DM Mono",monospace; letter-spacing:.025em; text-transform:uppercase; cursor:pointer; transition:background .2s ease,color .2s ease,border-color .2s ease; }
+.ipo-view-tabs button:hover,.ipo-view-tabs button:focus-visible { background:#252b21; color:#fff; }
+.ipo-view-tabs button.is-active { border-bottom-color:#d7ff52; background:#252b21; color:#d7ff52; }
+.ipo-tab-panel[hidden] { display:none !important; }
+.ipo-tab-panel .ipo-section-heading { grid-template-columns:1fr; }
+.ipo-project-heading .ipo-project-actions { flex:0 0 auto; margin:0; }
+.ipo-project-heading .ipo-project-actions .button { min-width:210px; }
+.ipo-project-meta { margin-bottom:0; }
+.ipo-research-grid { display:grid; grid-template-columns:1.12fr .88fr; gap:1px; background:rgba(255,255,255,.16); border-top:1px solid rgba(255,255,255,.16); border-bottom:1px solid rgba(255,255,255,.16); }
+.ipo-research-card { padding:clamp(30px,4vw,52px); background:#1b1f19; }
+.ipo-objective-card { background:#dedbd1; color:#11130f; }
+.ipo-card-number,.ipo-section-heading > span { display:block; color:#d7ff52; font:800 10px "DM Mono",monospace; letter-spacing:.09em; text-transform:uppercase; }
+.ipo-objective-card .ipo-card-number { color:#a33b25; }
+.ipo-research-card h4,.ipo-section-heading h4,.ipo-conclusion-grid h4 { margin:17px 0 16px; color:#fff; font-size:clamp(27px,3vw,42px); font-weight:800; letter-spacing:-.04em; line-height:1.05; }
+.ipo-objective-card h4 { color:#11130f; }
+.ipo-research-card > p { color:#d5dad1; font-size:15px; line-height:1.72; }
+.ipo-objective-card > p { color:#4f544c; }
+.ipo-fact-row { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; margin-top:30px; background:rgba(255,255,255,.18); }
+.ipo-fact-row p { min-width:0; margin:0; padding:18px 14px; background:#282d24; }
+.ipo-fact-row small,.ipo-financial-cards small { display:block; color:#c6ccc1; font:800 11px "DM Mono",monospace; line-height:1.45; text-transform:uppercase; }
+.ipo-fact-row strong { display:block; margin-top:10px; color:#fff; font-size:21px; font-weight:800; }
+.ipo-objective-card dl { display:grid; grid-template-columns:1fr 1fr; gap:1px; margin:28px 0 0; background:rgba(17,19,15,.18); }
+.ipo-objective-card dl div { padding:17px; background:#f1efe7; }
+.ipo-objective-card dt { color:#555b52; font:800 11px "DM Mono",monospace; line-height:1.4; text-transform:uppercase; }
+.ipo-objective-card dd { margin:9px 0 0; color:#11130f; font-size:18px; font-weight:800; }
+.ipo-financial-section,.ipo-peer-section,.ipo-dashboard-section { padding:clamp(32px,5vw,64px); border-bottom:1px solid rgba(255,255,255,.16); }
+.ipo-peer-section { background:#dedbd1; color:#11130f; }
+.ipo-dashboard-section { background:#181c16; }
+.ipo-section-heading { display:grid; grid-template-columns:210px 1fr; gap:30px; align-items:start; margin-bottom:36px; }
+.ipo-section-heading h4 { margin:0 0 7px; }
+.ipo-section-heading p { margin:0; color:#aeb5aa; font:700 9px "DM Mono",monospace; text-transform:uppercase; }
+.ipo-peer-section .ipo-section-heading > span { color:#a33b25; }
+.ipo-peer-section .ipo-section-heading h4 { color:#11130f; }
+.ipo-peer-section .ipo-section-heading p { color:#63685f; }
+.ipo-financial-cards { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:rgba(255,255,255,.16); }
+.ipo-financial-cards p { margin:0; padding:25px 20px; background:#262b23; }
+.ipo-financial-cards p:nth-child(3) { background:#30362b; }
+.ipo-financial-cards p:nth-child(4) { background:#d7ff52; }
+.ipo-financial-cards strong { display:block; margin:17px 0 12px; color:#fff; font-size:clamp(24px,2.6vw,36px); font-weight:800; letter-spacing:-.035em; }
+.ipo-financial-cards span { color:#d7ff52; font:800 11px "DM Mono",monospace; }
+.ipo-financial-cards p:nth-child(4) small,.ipo-financial-cards p:nth-child(4) strong,.ipo-financial-cards p:nth-child(4) span { color:#11130f; }
+.ipo-financial-reading,.ipo-peer-reading { max-width:990px; margin:28px 0 0; color:#ccd2c7; font-size:14px; line-height:1.72; }
+.ipo-peer-reading { color:#50554d; }
+.ipo-peer-chart { display:grid; gap:14px; padding:28px; background:#f1efe7; border:1px solid rgba(17,19,15,.18); }
+.ipo-peer-chart > div { display:grid; grid-template-columns:145px 1fr 70px; gap:14px; align-items:center; }
+.ipo-peer-chart span { color:#30352e; font-size:14px; font-weight:800; }
+.ipo-peer-chart i { position:relative; display:block; height:18px; background:rgba(17,19,15,.10); }
+.ipo-peer-chart i::after { content:""; position:absolute; inset:0 auto 0 0; width:var(--value); background:#747b70; }
+.ipo-peer-chart strong { font:800 14px "DM Mono",monospace; text-align:right; }
+.research-terminal .terminal-company-button,.research-terminal .terminal-tab,.explorer-company-switch button,.explorer-tabs button { font-size:13px; }
+.research-terminal .terminal-label,.one-pager-explorer .terminal-label { font-size:12px; }
+.ipo-peer-chart .is-company { padding:10px; margin:0 -10px; background:#11130f; }
+.ipo-peer-chart .is-company span,.ipo-peer-chart .is-company strong { color:#fff; }
+.ipo-peer-chart .is-company i { background:rgba(255,255,255,.15); }
+.ipo-peer-chart .is-company i::after { background:#d7ff52; }
+.ipo-dashboard-frame { display:block; width:100%; height:1120px; border:1px solid rgba(255,255,255,.18); background:#fff; }
+.ipo-conclusion-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:rgba(255,255,255,.16); }
+.ipo-conclusion-grid section { padding:clamp(30px,4vw,50px); background:#20251e; }
+.ipo-conclusion-grid section:nth-child(2) { background:#2d241c; }
+.ipo-conclusion-grid p,.ipo-conclusion-grid li { color:#d4d9cf; font-size:14px; line-height:1.7; }
+.ipo-conclusion-grid ul { margin:20px 0 0; padding:0; list-style:none; }
+.ipo-conclusion-grid li { padding:10px 0; border-bottom:1px solid rgba(255,255,255,.14); }
+.ipo-conclusion-grid li::before { content:"+"; margin-right:12px; color:#d7ff52; font-weight:800; }
+.ipo-project-feature > .ipo-project-note { margin:0; padding:22px clamp(25px,5vw,64px); background:#0d0f0c; color:#9ba095; }
+
+@media (max-width:900px) {
+  .ipo-project-heading { align-items:flex-start; flex-direction:column; }
+  .ipo-project-heading .ipo-project-actions { width:100%; }
+  .ipo-research-grid,.ipo-conclusion-grid { grid-template-columns:1fr; }
+  .ipo-section-heading { grid-template-columns:1fr; gap:13px; }
+  .ipo-financial-cards { grid-template-columns:1fr 1fr; }
+  .ipo-dashboard-frame { height:1180px; }
+  .ipo-view-tabs { grid-template-columns:repeat(5,minmax(150px,1fr)); overflow-x:auto; padding:0 20px; scrollbar-width:thin; }
+}
+@media (max-width:820px) {
+  .ipo-dashboard-frame { height:1850px; }
+}
+@media (max-width:620px) {
+  .ipo-project-header,.ipo-financial-section,.ipo-peer-section,.ipo-dashboard-section { padding:28px 20px; }
+  .ipo-title-lockup { align-items:flex-start; flex-direction:column; }
+  .ipo-company-logo { width:190px; min-height:0; flex-basis:auto; padding:16px 18px; }
+  .ipo-project-header h3 { font-size:38px; }
+  .ipo-project-heading .ipo-project-actions .button { width:100%; min-width:0; }
+  .ipo-research-card { padding:28px 20px; }
+  .ipo-fact-row { grid-template-columns:1fr; }
+  .ipo-objective-card dl { grid-template-columns:1fr; }
+  .ipo-financial-cards { grid-template-columns:1fr; }
+  .ipo-peer-chart { padding:20px 14px; }
+  .ipo-peer-chart > div { grid-template-columns:90px 1fr 56px; gap:8px; }
+  .ipo-peer-chart span { font-size:12px; }
+  .ipo-peer-chart strong { font-size:12px; }
+  .ipo-dashboard-frame { height:2100px; }
+}
