@@ -455,3 +455,133 @@ if (ipoFeature) {
 
   selectIpoView('overview');
 }
+
+const mobileProjectSwitcher = document.querySelector('.mobile-project-switcher');
+
+if (mobileProjectSwitcher) {
+  const mobileProjectQuery = window.matchMedia('(max-width: 700px)');
+  const mobileProjectButtons = [...mobileProjectSwitcher.querySelectorAll('[data-mobile-project]')];
+  const mobileProjectModules = new Map(
+    mobileProjectButtons.map((button) => [button.dataset.mobileProject, document.getElementById(button.dataset.mobileProject)])
+  );
+  let activeMobileProject = 'one-pager-explorer';
+
+  const showMobileProject = (projectId, shouldScroll = false) => {
+    if (!mobileProjectModules.has(projectId)) return;
+    activeMobileProject = projectId;
+    const compact = mobileProjectQuery.matches;
+
+    mobileProjectButtons.forEach((button) => {
+      const active = button.dataset.mobileProject === activeMobileProject;
+      button.classList.toggle('is-active', active);
+      button.setAttribute('aria-pressed', String(active));
+    });
+
+    mobileProjectModules.forEach((module, id) => {
+      if (!module) return;
+      module.classList.toggle('mobile-project-hidden', compact && id !== activeMobileProject);
+      if (compact) module.setAttribute('aria-hidden', String(id !== activeMobileProject));
+      else module.removeAttribute('aria-hidden');
+    });
+
+    if (compact && shouldScroll) {
+      requestAnimationFrame(() => mobileProjectSwitcher.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+    }
+  };
+
+  mobileProjectButtons.forEach((button) => {
+    button.addEventListener('click', () => showMobileProject(button.dataset.mobileProject, true));
+  });
+
+  document.querySelectorAll('a[href="#one-pager-explorer"], a[href="#prototype"], a[href="#ipo-analysis"]').forEach((link) => {
+    link.addEventListener('click', () => showMobileProject(link.getAttribute('href').slice(1), false));
+  });
+
+  const hashProject = window.location.hash.slice(1);
+  if (mobileProjectModules.has(hashProject)) activeMobileProject = hashProject;
+  showMobileProject(activeMobileProject);
+  mobileProjectQuery.addEventListener('change', () => showMobileProject(activeMobileProject));
+}
+
+const ipoDashboardFrame = document.querySelector('.ipo-dashboard-frame');
+
+if (ipoDashboardFrame) {
+  const syncDashboardHeight = (height) => {
+    if (window.matchMedia('(max-width: 700px)').matches) {
+      ipoDashboardFrame.style.height = `${Math.max(560, Math.min(1100, Math.ceil(height) + 4))}px`;
+    } else {
+      ipoDashboardFrame.style.removeProperty('height');
+    }
+  };
+
+  window.addEventListener('message', (event) => {
+    if (event.source !== ipoDashboardFrame.contentWindow || event.data?.type !== 'ipo-dashboard-height') return;
+    syncDashboardHeight(Number(event.data.height) || 760);
+  });
+
+  window.addEventListener('resize', () => {
+    if (!window.matchMedia('(max-width: 700px)').matches) ipoDashboardFrame.style.removeProperty('height');
+  }, { passive:true });
+}
+
+document.querySelectorAll('.timeline-item').forEach((item) => {
+  const main = item.querySelector('.timeline-main');
+  if (!main) return;
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'mobile-detail-toggle';
+  button.setAttribute('aria-expanded', 'false');
+  button.innerHTML = '<span>View details</span><b>+</b>';
+  button.addEventListener('click', () => {
+    const expanded = item.classList.toggle('is-expanded');
+    button.setAttribute('aria-expanded', String(expanded));
+    button.querySelector('span').textContent = expanded ? 'Show less' : 'View details';
+    button.querySelector('b').textContent = expanded ? '−' : '+';
+  });
+  main.append(button);
+});
+
+const mobileSkillGroups = [...document.querySelectorAll('.skill-group')];
+
+mobileSkillGroups.forEach((group, index) => {
+  const heading = group.querySelector('h3');
+  if (!heading) return;
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'mobile-skill-toggle';
+  button.setAttribute('aria-expanded', String(index === 0));
+  button.setAttribute('aria-label', `Toggle ${heading.textContent} skills`);
+  button.textContent = index === 0 ? '−' : '+';
+  group.classList.toggle('is-expanded', index === 0);
+  button.addEventListener('click', () => {
+    const willOpen = !group.classList.contains('is-expanded');
+    mobileSkillGroups.forEach((item) => {
+      item.classList.remove('is-expanded');
+      const itemButton = item.querySelector('.mobile-skill-toggle');
+      if (itemButton) { itemButton.textContent = '+'; itemButton.setAttribute('aria-expanded', 'false'); }
+    });
+    if (willOpen) {
+      group.classList.add('is-expanded');
+      button.textContent = '−';
+      button.setAttribute('aria-expanded', 'true');
+    }
+  });
+  group.append(button);
+});
+
+const mobileQuickNav = document.querySelector('.mobile-quick-nav');
+
+if (mobileQuickNav) {
+  const toggle = mobileQuickNav.querySelector('.mobile-quick-nav-toggle');
+  const closeQuickNav = () => {
+    mobileQuickNav.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.querySelector('span').textContent = '+';
+  };
+  toggle.addEventListener('click', () => {
+    const open = mobileQuickNav.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.querySelector('span').textContent = open ? '×' : '+';
+  });
+  mobileQuickNav.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeQuickNav));
+}
