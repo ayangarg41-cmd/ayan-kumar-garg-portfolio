@@ -38,7 +38,10 @@
       <section class="hero section-pad" aria-labelledby="hero-title">
         <div class="hero-grid">
           <div class="hero-copy reveal">
-            <p class="eyebrow"><span></span> NISM Series XV Certified Research Analyst</p>
+            <div class="hero-credential-row">
+              <p class="eyebrow"><span></span><b>NISM Series XV Certified Research Analyst</b></p>
+              <p class="eyebrow hero-air-box"><span></span><b>All India Rank 1 · SRCC GBO Admission</b></p>
+            </div>
             <h1 id="hero-title"><span>Ayan</span><br /><strong>Kumar Garg</strong></h1>
             <p class="hero-intro">MBA graduate from Shri Ram College of Commerce with a background in finance and a strong interest in capital markets, stock-market research, financial analysis, and investment decision-making.</p>
             <div class="hero-actions">
@@ -46,7 +49,35 @@
               <a class="button button-ghost" href="#contact">Get in touch <span>↗</span></a>
             </div>
           </div>
-
+          <aside class="hero-project-preview reveal" aria-label="Featured finance projects">
+            <div class="hero-project-preview-head"><span>Featured projects</span><a href="#projects">Explore all ↘</a></div>
+            <div class="hero-project-mosaic">
+              <a class="hero-project-tile hero-project-profiles" href="#one-pager-explorer">
+                <div class="hero-project-tile-head"><span>01 / Company research</span><i>↗</i></div>
+                <div class="hero-project-card-body">
+                  <h2>Company Research Snapshots</h2>
+                  <p>Understand the business, read its financial performance and assess it through a valuation lens.</p>
+                </div>
+                <div class="hero-project-points"><span>Business quality</span><span>Financials</span><span>Valuation</span></div>
+              </a>
+              <a class="hero-project-tile hero-project-models" href="#prototype">
+                <div class="hero-project-tile-head"><span>02 / Modelling</span><i>↗</i></div>
+                <div class="hero-project-card-body">
+                  <h3>3-Statement Financial Models</h3>
+                  <p>See how operating assumptions flow through linked statements and forward forecasts.</p>
+                </div>
+                <div class="hero-project-points"><span>P&amp;L</span><span>Balance sheet</span><span>Cash flow</span></div>
+              </a>
+              <a class="hero-project-tile hero-project-ipo" href="#ipo-analysis">
+                <div class="hero-project-tile-head"><span>03 / IPO research</span><i>↗</i></div>
+                <div class="hero-project-card-body">
+                  <h3>IPO Analysis</h3>
+                  <p>Review the offer, compare peer valuation and test potential return scenarios.</p>
+                </div>
+                <div class="hero-project-points"><span>Offer</span><span>Peer valuation</span><span>Scenarios</span></div>
+              </a>
+            </div>
+          </aside>
         </div>
         <a class="scroll-cue" href="#about" aria-label="Scroll to About"><span>Scroll to discover</span><i>↓</i></a>
       </section>
@@ -145,6 +176,12 @@
           <h2 class="section-title reveal">Independent Company Research &<br /><em>Financial Analysis.</em></h2>
         </div>
 
+        <nav class="mobile-project-switcher" aria-label="Choose a featured project">
+          <button type="button" class="is-active" data-mobile-project="one-pager-explorer" aria-pressed="true"><span>01</span>Company Research</button>
+          <button type="button" data-mobile-project="prototype" aria-pressed="false"><span>02</span>Financial Models</button>
+          <button type="button" data-mobile-project="ipo-analysis" aria-pressed="false"><span>03</span>IPO Analysis</button>
+        </nav>
+
         <div class="project-category-grid" hidden aria-hidden="true">
           <details class="project-category reveal">
             <summary>
@@ -226,7 +263,7 @@
           <p class="prototype-note">Portfolio analysis based on publicly available information and the linked models. Figures are illustrative and do not constitute investment advice.</p>
         </div>
 
-        <article class="ipo-project-feature reveal" aria-labelledby="ipo-project-title">
+        <article id="ipo-analysis" class="ipo-project-feature reveal" aria-labelledby="ipo-project-title">
           <header class="ipo-project-header">
             <div class="ipo-project-heading">
               <div>
@@ -415,6 +452,7 @@
         <div class="section-grid">
           <h2 class="section-title reveal">Credentials &<br /><em>Training.</em></h2>
         </div>
+        <p class="mobile-swipe-hint">Swipe to explore credentials →</p>
         <div class="certification-grid">
           <article class="certification-card certification-primary reveal"><span>NISM</span><h3>Series XV: Research Analyst Certification</h3><p>National Institute of Securities Markets</p></article>
           <article class="certification-card reveal"><span>SEBI</span><h3>Investor Awareness Certification</h3><p>National Institute of Securities Markets</p></article>
@@ -439,6 +477,19 @@
         </div>
       </section>
     </main>
+
+    <nav class="mobile-quick-nav" aria-label="Mobile section shortcuts">
+      <button type="button" class="mobile-quick-nav-toggle" aria-expanded="false" aria-controls="mobile-quick-nav-links">Navigate <span>+</span></button>
+      <div id="mobile-quick-nav-links">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
 
     <footer>
       <a class="brand" href="#top">AKG<span>.</span></a>
